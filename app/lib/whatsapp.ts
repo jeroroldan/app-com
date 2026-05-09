@@ -8,12 +8,12 @@ function buildWhatsAppUrl(message: string) {
 
 export function buildGeneralWhatsAppLink() {
   return buildWhatsAppUrl(
-    'Hola, quiero consultar por sus productos artesanales y coordinar un pedido.'
+    'Hola, quiero consultar stock de sus productos artesanales y coordinar un pedido.'
   );
 }
 
 export function buildProductWhatsAppLink(product: Product) {
   return buildWhatsAppUrl(
-    `Hola, me interesa ${product.name} (${formatPrice(product.price)}). Quiero consultar disponibilidad y pedido.`
+    `Hola, me interesa ${product.name} (${formatPrice(product.price)}). Quiero consultar stock, disponibilidad y pedido.`
   );
 }

@@ -31,15 +31,16 @@ export default function ProductCard({ product }: ProductCardProps) {
         <h3 className="product-card__title">{product.name}</h3>
         <p className="product-card__description">{product.description}</p>
         <p className="product-card__occasion">{product.marketingBlurb}</p>
+        <p className="product-card__stock-note">Consultar stock al momento del pedido.</p>
 
         <a
           className="button button--whatsapp button--full"
           href={buildProductWhatsAppLink(product)}
           target="_blank"
           rel="noreferrer"
-          aria-label={`Pedir ${product.name} por WhatsApp`}
+          aria-label={`Consultar stock de ${product.name} por WhatsApp`}
         >
-          Pedir por WhatsApp
+          Consultar stock
         </a>
       </div>
     </article>

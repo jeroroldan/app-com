@@ -14,11 +14,6 @@ const benefits = [
     description:
       'Opciones pensadas para cumpleanos, meriendas, reuniones y detalles que dejan una buena impresion.',
   },
-  {
-    title: 'Pedidos personalizados',
-    description:
-      'Te ayudamos a resolver cantidades, combinaciones y ocasiones especiales por WhatsApp.',
-  },
 ];
 
 export default function BenefitsSection() {
