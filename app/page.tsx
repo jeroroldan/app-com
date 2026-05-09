@@ -1,34 +1,37 @@
-'use client';
-
-import HeroSection from './components/HeroSection';
-import ProductGrid from './components/ProductGrid';
-import BenefitsSection from './components/BenefitsSection';
 import AboutSection from './components/AboutSection';
+import BenefitsSection from './components/BenefitsSection';
 import Footer from './components/Footer';
+import HeroSection from './components/HeroSection';
+import ProductCatalog from './components/ProductCatalog';
+import ProductGrid from './components/ProductGrid';
+import WhatsAppButton from './components/WhatsAppButton';
 import { products } from './data/products';
 
+const featuredProducts = products.filter((product) => product.featured);
+
 export default function HomePage() {
-  const handleWhatsApp = (product: typeof products[0]) => {
-    const phoneNumber = '5491112345678';
-    const message = `Hola, me interesa el ${product.name} - $${product.price.toLocaleString('es-AR')}`;
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
-  };
-
-  const featuredProducts = products.filter(p => p.featured);
-
   return (
-    <main>
+    <>
       <HeroSection />
-      <ProductGrid 
-        products={products} 
-        onWhatsApp={handleWhatsApp} 
-        title="Nuestros Productos"
-        showFeaturedOnly={false}
-      />
-      <BenefitsSection />
-      <AboutSection />
+
+      <main id="main-content">
+        <BenefitsSection />
+
+        <ProductGrid
+          id="destacados"
+          eyebrow="Favoritos de la casa"
+          title="Los elegidos para regalar, compartir o darte un gusto"
+          description="Una seleccion pensada para convertir mas rapido: productos con gran salida, excelente presentacion y pedidos frecuentes."
+          products={featuredProducts}
+          emptyMessage="Muy pronto vamos a sumar productos destacados."
+        />
+
+        <ProductCatalog products={products} />
+        <AboutSection />
+      </main>
+
       <Footer />
-    </main>
+      <WhatsAppButton floating />
+    </>
   );
 }

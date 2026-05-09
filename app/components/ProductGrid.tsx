@@ -1,41 +1,51 @@
-'use client';
-
 import { Product } from '../types/product';
 import ProductCard from './ProductCard';
 
 interface ProductGridProps {
   products: Product[];
-  onWhatsApp: (product: Product) => void;
   title?: string;
-  showFeaturedOnly?: boolean;
+  description?: string;
+  eyebrow?: string;
+  id?: string;
+  emptyMessage?: string;
+  compactHeader?: boolean;
 }
 
-export default function ProductGrid({ products, onWhatsApp, title, showFeaturedOnly = false }: ProductGridProps) {
-  const displayProducts = showFeaturedOnly
-    ? products.filter(p => p.featured)
-    : products;
-
+export default function ProductGrid({
+  products,
+  title,
+  description,
+  eyebrow,
+  id,
+  emptyMessage = 'No hay productos disponibles por el momento.',
+  compactHeader = false,
+}: ProductGridProps) {
   return (
-    <section className="product-section">
-      {title && (
-        <h2 className="product-title">
-          {title}
-        </h2>
+    <section
+      id={id}
+      className={compactHeader ? 'product-grid-shell product-grid-shell--compact' : 'section-shell'}
+      aria-labelledby={title ? `${id ?? 'products'}-title` : undefined}
+    >
+      {(title || description || eyebrow) && (
+        <div className="section-heading">
+          {eyebrow ? <span className="section-eyebrow">{eyebrow}</span> : null}
+          {title ? (
+            <h2 id={`${id ?? 'products'}-title`} className="section-title">
+              {title}
+            </h2>
+          ) : null}
+          {description ? <p className="section-description">{description}</p> : null}
+        </div>
       )}
-      <div className="product-grid">
-        {displayProducts.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            onWhatsApp={onWhatsApp}
-          />
-        ))}
-      </div>
-      {displayProducts.length === 0 && (
-        <p style={{
-          textAlign: 'center',
-          color: '#6b7280'
-        }}>No hay productos disponibles.</p>
+
+      {products.length > 0 ? (
+        <div className="product-grid">
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      ) : (
+        <p className="empty-state">{emptyMessage}</p>
       )}
     </section>
   );

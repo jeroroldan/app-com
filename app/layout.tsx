@@ -1,13 +1,11 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import '../globals.css';
 import '../components.css';
 
-const inter = Inter({ subsets: ['latin'] });
-
 export const metadata: Metadata = {
-  title: 'Delicias Artesanales',
-  description: 'Pastafrolas, alfajores, budines y tortas artesanales',
+  title: 'Delicias Artesanales | Catalogo dulce para pedir por WhatsApp',
+  description:
+    'Catalogo de pastafrolas, alfajores, budines y tortas artesanales. Productos frescos, personalizados y listos para pedir por WhatsApp.',
 };
 
 export default function RootLayout({
@@ -17,7 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={inter.className} suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <a href="#main-content" className="skip-link">
+          Saltar al contenido principal
+        </a>
         {children}
       </body>
     </html>

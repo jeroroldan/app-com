@@ -5,5 +5,7 @@ export interface Product {
   price: number;
   category: string;
   imageUrl: string;
+  imageAlt: string;
+  marketingBlurb: string;
   featured?: boolean;
 }
