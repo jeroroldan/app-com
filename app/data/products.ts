@@ -1,0 +1,78 @@
+import type { Product } from '../types/product';
+
+export const products: Product[] = [
+  {
+    id: '1',
+    name: 'Pastafrola de Vainilla',
+    description: 'Clásica pastafrola con crema de vainilla y cobertura de chocolate',
+    price: 1200,
+    category: 'Pastafrolas',
+    imageUrl: '/products/WhatsApp Image 2026-05-09 at 11.58.23 AM.jpeg',
+    featured: true,
+  },
+  {
+    id: '2',
+    name: 'Alfajor de Maíz',
+    description: 'Alfajor relleno de dulce de leche con maíz morado y chocolate',
+    price: 800,
+    category: 'Alfajores',
+    imageUrl: '/products/WhatsApp Image 2026-05-09 at 11.58.24 AM.jpeg',
+    featured: true,
+  },
+  {
+    id: '3',
+    name: 'Budín de Naranja',
+    description: 'Budín húmedo de naranja con glaseado de crema',
+    price: 950,
+    category: 'Budines',
+    imageUrl: '/products/WhatsApp Image 2026-05-09 at 11.58.24 AM (1).jpeg',
+    featured: false,
+  },
+  {
+    id: '4',
+    name: 'Torta Red Velvet',
+    description: 'Torta esponjosa con crema de queso y decoración de flores',
+    price: 4500,
+    category: 'Tortas',
+    imageUrl: '/products/WhatsApp Image 2026-05-09 at 11.58.24 AM (2).jpeg',
+    featured: true,
+  },
+  {
+    id: '5',
+    name: 'Pastafrola de Frutas',
+    description: 'Pastafrola con crema y frutas de temporada',
+    price: 1350,
+    category: 'Pastafrolas',
+    imageUrl: '/products/WhatsApp Image 2026-05-09 at 11.58.25 AM.jpeg',
+    featured: false,
+  },
+  {
+    id: '6',
+    name: 'Alfajor de Chocolate',
+    description: 'Alfajor de chocolate con relleno de dulce de leche',
+    price: 750,
+    category: 'Alfajores',
+    imageUrl: '/products/WhatsApp Image 2026-05-09 at 11.58.23 AM (1).jpeg',
+    featured: false,
+  },
+  {
+    id: '7',
+    name: 'Budín de Chocolate',
+    description: 'Budín de chocolate intenso con trocitos de chocolate',
+    price: 1000,
+    category: 'Budines',
+    imageUrl: '/products/WhatsApp Image 2026-05-09 at 11.58.24 AM (1).jpeg',
+    featured: true,
+  },
+  {
+    id: '8',
+    name: 'Torta de Chocolate',
+    description: 'Torta de chocolate con crema y ralladura de chocolate blanco',
+    price: 3800,
+    category: 'Tortas',
+    imageUrl: '/products/WhatsApp Image 2026-05-09 at 11.58.24 AM (2).jpeg',
+    featured: false,
+  },
+];
+
+export const categories = Array.from(new Set(products.map((p) => p.category)));
